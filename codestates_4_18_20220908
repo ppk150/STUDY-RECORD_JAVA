@@ -1,0 +1,27 @@
+package com.codestates.coplit; 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+
+public class Solution { 
+	public String createPhoneNumber(int[] arr) {
+    // TODO:
+		
+    String result = Arrays.toString(arr);
+
+		if(arr.length == 8){
+      result = "(010)" + result.substring(1,result.length()-1).replace(", ","");
+      //result.insert(8, "-");
+      result = result.substring(0, 9) + "-" + result.substring(9, result.length());
+      return result;
+
+		}else if (arr.length == 11){
+      result = result.substring(1,result.length()-1).replace(", ","");
+      //result.insert(8, "-");
+      result = "("+ result.substring(0, 3)+ ")"+result.substring(3, 7) + "-" + result.substring(7, result.length());
+      return result;
+
+		}
+    return result;
+	} 
+}
