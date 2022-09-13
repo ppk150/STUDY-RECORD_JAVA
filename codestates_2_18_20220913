@@ -1,0 +1,38 @@
+package com.codestates.coplit; 
+
+public class Solution { 
+	public String listPrimes(int num) {
+    // TODO:
+    String result = "";
+    int count_A = 0;
+
+    if (num == 2 ){
+      return "2";
+
+    }
+
+    for(int i = 2 ; i <= num ; i++){
+      int count = 0 ;
+        for(int j = 2 ; j < i ; j++){
+          if(i % j ==0 ){
+            count++;
+            break;
+    }
+
+  }
+  if(count==0){
+    count_A++;
+  }
+  
+  if (count ==0&&count_A==1){
+    result = result+ Integer.toString(i);
+  }else if (count ==0&&count_A!=1){
+    result = result+ "-"+ Integer.toString(i);
+  }
+
+
+    }
+    return result;
+  
+	} 
+}
