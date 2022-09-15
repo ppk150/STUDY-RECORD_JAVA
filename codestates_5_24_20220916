@@ -1,0 +1,36 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+  public HashMap<Character, Integer> countAllCharacter(String str) {
+    //TODO..
+
+    HashMap<Character, Integer> result = new HashMap<Character, Integer>();
+
+    if(str.length()<=0){
+      return null;
+    }
+
+    char[] comp = str.toCharArray();
+        
+
+    int[] count_small = new int[26]; // 소문자
+    
+    
+    for(int i=0; i<comp.length; i++){
+            count_small[comp[i]-97]++; // 해당 자리에 횟수 기록
+        }
+
+    for(int i = 0 ; i <count_small.length; i++ ){
+      if(count_small[i]>0){ 
+        result.put((char)(97+i),count_small[i] );
+      
+      }     
+      
+    }
+
+    return result;
+
+    }
+    
+  }
