@@ -1,0 +1,15 @@
+package com.codestates.coplit; 
+import java.util.*;
+import java.util.stream.*;
+
+public class Solution { 
+  public List<String> findPeople(List<String> male, List<String> female, String lastName) {
+    //TODO..
+
+    List<String> result = Stream.concat(male.stream(), female.stream()).filter(s ->s.startsWith(lastName)).distinct().sorted() // 중간 연산자 사용 시, 필요 데이터 제한 먼저, 그 후 후처리 관련은 뒤에 쓰는것이 좋음
+    .collect(Collectors.toList());
+
+    return result;
+
+  }
+}
