@@ -1,0 +1,103 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class elice_test_2 {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int x;
+        int N = 0;
+        Scanner sc = new Scanner(System.in);
+
+        String Test = bf.readLine();
+         N = Integer.parseInt(Test);// TT[0] 첫번째 숫자
+
+//        N = sc.nextInt();
+        int end = 0;
+
+        int sumA = 0;
+        int sumB = 0;
+        int count = 0 ;
+
+
+
+
+
+
+                String[] A = bf.readLine().split(" ");
+                int[] A_I =new int[N];
+                for(int i = 0 ; i < N ; i++){
+                    A_I[i] = Integer.parseInt(A[i]);
+                }
+
+
+                String[] B = bf.readLine().split(" "); // A , B 문자열 int 배열로 맨듬
+                int[] B_I =new int[N];
+                for(int i = 0 ; i < N ; i++){
+                    B_I[i] = Integer.parseInt(B[i]);
+                }
+
+
+                for(int i = 0 ; i < N ; i++){ // 둘의 합이 같은지 볼라고 다 더함
+                    sumA = sumA +A_I[i];
+                    sumB = sumB +B_I[i];
+
+                }
+
+                if (sumA != sumB){ // 합이 다르면 계싼
+
+                    int sumA_2 = 0;
+                    int sumB_2 = 0;
+
+                    for(int i = 0 ; i < N ; i++){
+
+                        int comp_A =  B_I[i];// 자리 서로 바꿈
+                        int comp_B =  A_I[i];
+
+                        int[] A_comp = new int[N]; // 더하기 전용 배열
+                        int[] B_comp = new int[N];
+
+
+                        for(int j = 0 ; j < N ; j++){  // 자리 서로 바꾼 배열 생성
+                            if (i == j ){
+                                A_comp[j] = comp_A;
+                                B_comp[j] = comp_B;
+
+                            }else{
+                                A_comp[j] = A_I[j];
+                                B_comp[j] = B_I[j];
+                            }
+                        }
+
+
+
+                        for(int j = 0 ; j < N ; j++){
+                            sumA_2 = sumA_2 +A_comp[i];
+                            sumB_2 = sumB_2 +B_comp[i];
+                        }
+                        count ++ ;
+
+                        if(sumA_2 == sumB_2){     // 결과값 출력
+
+                            System.out.println(1);
+                            break;
+
+                        }
+                        if(count >= N){
+                            System.out.println(0);
+                            break;
+
+                        }
+
+
+                    }
+
+                }else{
+                    System.out.println(1);
+                }
+
+
+    }
+}
