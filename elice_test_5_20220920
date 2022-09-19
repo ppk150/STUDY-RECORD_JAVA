@@ -1,0 +1,57 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class elice_test_5 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int N;
+        N = sc.nextInt();
+        int result = 0 ;
+
+        int[] arr = new int [N];
+
+        for(int i  = 0 ; i < N ; i ++){
+
+            arr[i] = i+1;
+
+        } // 오름차순 된 수 구함
+
+        int M;
+        M = sc.nextInt();
+        int[] comp = new int[M];
+
+        for(int i = 0 ; i < M ; i++) {
+            comp[i] = sc.nextInt();
+        }
+        Arrays.sort(comp);
+
+        for(int i = 0 ; i < N ; i++ ){
+
+            if(i == N-1){
+                result = arr[i];
+                break;
+
+            }
+
+            if(comp[i] != arr[i]){
+                result = arr[i];
+                break;
+            }
+
+
+        }
+
+        if(comp.length ==  arr.length-1){
+            System.out.println("Yes");
+            System.out.println(result);
+
+        }else{
+
+            System.out.println("No");
+
+        }
+
+    }
+}
