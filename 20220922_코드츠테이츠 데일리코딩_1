@@ -1,0 +1,14 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public HashMap<String, String> transformFirstAndLast(String[] arr) {
+    // TODO:
+		if(arr.length == 0){
+			return null;
+		}
+		HashMap<String, String> map = new HashMap<>();
+		map.put(arr[0],arr[arr.length-1]);
+		return map;
+	} 
+}
