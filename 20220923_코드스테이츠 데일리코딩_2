@@ -1,0 +1,28 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public int computeWhenDouble(double interestRate) {
+    // TODO:
+
+		double result =1 ;
+		int count = 0;
+
+
+		while(result <=2){
+
+			result =  result *(1+interestRate*0.01);
+			count++;
+
+			if(result >= 2)
+			{
+				break;
+
+			}
+
+		}
+		return count;
+
+
+	} 
+}
