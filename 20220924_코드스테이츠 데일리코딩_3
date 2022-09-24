@@ -1,0 +1,35 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public boolean powerOfTwo(long num) {
+    // TODO:
+
+    double result = num;
+    double count =  1;
+
+    if(result == 1 ){
+      return true;
+    }    
+
+
+    while(true){
+
+      count = count * 2;
+
+      
+      if(result == count){
+        return true;
+      }
+
+      if(count > result){
+        return false;
+      }
+      
+      
+
+    } // 실행시간 초과, 제곱근 사용해야 할듯 Math 함수에 제곱근 있음 
+
+
+	} 
+}
