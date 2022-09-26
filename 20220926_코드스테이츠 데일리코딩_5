@@ -1,0 +1,19 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public String firstReverse(String str) {
+    // TODO:
+
+    String st = str;
+    String result = "";
+
+    if(str.length() == 0){
+      return str;
+    }
+    for(int i = 1 ; i <= st.length(); i++){
+          result = result+ Character.toString(st.charAt(st.length()-i));
+    }
+    return result;
+	} 
+}
