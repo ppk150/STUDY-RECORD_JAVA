@@ -1,0 +1,40 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public HashMap<String, String> convertListToHashMap(String[][] arr) {
+    // TODO:
+
+    HashMap<String, String> map = new HashMap<>();
+
+    if(arr.length == 0){ // 입력 안받앗을때 빈거
+    map.clear();
+
+      return map;
+    }
+
+    if(arr[0].length == 0){ // 입력 안받앗을때 빈거
+    map.clear();
+
+      return map;
+    }
+
+    
+
+    if(arr.length > 0){
+
+      for(int i = 0 ; i <arr.length ; i++ ){ //값이 있는 경우에만 넣게 
+      if(!map.containsKey(arr[i][0])){
+        map.put(arr[i][0],arr[i][1]);
+      }       
+
+      }
+
+    }
+
+
+    
+
+    return map;
+	} 
+}
