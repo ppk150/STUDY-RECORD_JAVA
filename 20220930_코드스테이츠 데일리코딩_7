@@ -1,0 +1,30 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public boolean ABCheck(String str) {
+    // TODO:
+
+    int L = str.length();
+
+    if(L >= 5){
+
+    
+
+    for(int i = 0 ; i < L-4 ; i ++){
+
+
+      if((str.charAt(i)=='a'||str.charAt(i)=='A')&&(str.charAt(i+4)=='b'||str.charAt(i+4)=='B')){
+                return true;
+
+            }else if((str.charAt(i)=='b'||str.charAt(i)=='B')&&(str.charAt(i+4)=='a'||str.charAt(i+4)=='A')){
+                return true;
+            }
+
+
+
+    }
+    }
+    return false;
+	} 
+}
