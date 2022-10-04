@@ -1,0 +1,40 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public String readVertically(String[] arr) {
+    // TODO:
+    // 문자 배열 길이만큼 반복
+    // 문자열 하나씩 번갈아 가면서 출력
+
+    int L = arr.length;
+
+    String result = "";
+    int comp = 0;
+
+
+    for(int i =0 ; i < L ; i++){ // 배열 중 가장 긴 문자열 길이 구함
+
+      if(comp < arr[i].length()){
+        comp = arr[i].length();
+      }
+
+    }
+
+
+    for(int i =0 ; i < comp ; i++){
+
+    for(int j =0 ; j < L ; j++){
+
+      if(i <arr[j].length()){
+
+        result = result + arr[j].charAt(i);
+
+      }
+
+    }
+    }
+    return result;
+
+	} 
+}
