@@ -1,0 +1,73 @@
+//10828 스택
+
+import java.io.*;
+import java.util.Stack;
+
+public class weekstudy_1 {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String T = bf.readLine();
+        int testtime  = Integer.parseInt(T); // 명령 횟수를 스트링으로 받고 인트로 저장
+
+        Stack<Integer> stack = new Stack<>(); // 스택 선언
+
+        for(int i = 0 ; i < testtime ; i++){
+
+            String[] TT = bf.readLine().split(" "); // 입력받는 String 배열
+
+            if(TT.length == 2 && TT[0].equals("push")){ // 푸시 해서 2개 들어오묜
+               //  int N = Integer.parseInt(TT[0]);// N 받음 (기존 도감 안의 수)
+                int K = Integer.parseInt(TT[1]);// M 받음 (찾아야 하는 수)
+                stack.push(K); // 숫자 들온거 넣음
+
+            }else{
+
+                if(TT[0].equals("top") && stack.size() > 0){
+
+                    System.out.println(stack.peek()); // 맨 위에꺼 출력
+
+                }
+
+                if(TT[0].equals("top") && stack.size() <= 0){
+
+                    System.out.println(-1); // 맨 위에꺼 출력
+
+                }
+
+                if(TT[0].equals("pop") && stack.size() <= 0 ){
+
+                    System.out.println(-1); // 하나 빼고, 뺀거 출력
+
+                }
+
+                if(TT[0].equals("pop") && stack.size() > 0 ){
+
+                    System.out.println(stack.pop()); // 하나 빼고, 뺀거 출력
+
+                }
+
+                if(TT[0].equals("size")){
+
+                    System.out.println(stack.size()); // 사이즈 출력
+
+                }
+
+                if(TT[0].equals("empty")){
+
+                    if(stack.empty()){
+
+                        System.out.println(1); // 비엇을때 1 출력
+
+                    }else{
+
+                        System.out.println(0); // 안볏을때 0 출력
+
+                    }
+                }
+            }
+        }
+    }
+}
