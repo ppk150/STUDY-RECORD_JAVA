@@ -1,0 +1,108 @@
+import java.io.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Stack;
+
+public class weekstudy_2 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String T = bf.readLine();
+        int testtime  = Integer.parseInt(T); // 명령 횟수를 스트링으로 받고 인트로 저장
+
+        Deque<Integer> deque = new ArrayDeque<>(); // 스택 선언
+
+        for(int i = 0 ; i < testtime ; i++){
+
+            String[] TT = bf.readLine().split(" "); // 입력받는 String 배열
+
+            if(TT.length == 2){ // 푸시 해서 2개 들어오묜
+
+                if(TT[0].equals("push_front")){ //앞에다 넣는거
+
+                    //  int N = Integer.parseInt(TT[0]);// N 받음 (기존 도감 안의 수)
+                    int K = Integer.parseInt(TT[1]);// M 받음 (찾아야 하는 수)
+                    deque.addFirst(K); // 숫자 들온거 넣음
+
+                }else if(TT[0].equals("push_back")){ //뒤에다 넣는거
+
+                    //  int N = Integer.parseInt(TT[0]);// N 받음 (기존 도감 안의 수)
+                    int K = Integer.parseInt(TT[1]);// M 받음 (찾아야 하는 수)
+                    deque.addLast(K); // 숫자 들온거 넣음
+
+                }
+
+
+            }else{
+
+                if(TT[0].equals("front") && deque.size() > 0){
+
+                    System.out.println(deque.peekFirst()); // 맨 위에꺼 출력
+
+                }
+
+                if(TT[0].equals("front") && deque.size() <= 0){
+
+                    System.out.println(-1); // 맨 위에꺼 출력
+
+                }
+
+                if(TT[0].equals("back") && deque.size() > 0){
+
+                    System.out.println(deque.peekLast()); // 맨 뒤에꺼 출력
+
+                }
+
+                if(TT[0].equals("back") && deque.size() <= 0){
+
+                    System.out.println(-1); // 맨 위에꺼 출력
+
+                }
+
+                if(TT[0].equals("pop_front") && deque.size() <= 0 ){
+
+                    System.out.println(-1); // 하나 빼고, 뺀거 출력 // 숫자 없을때
+
+                }
+
+                if(TT[0].equals("pop_back") && deque.size() <= 0 ){
+
+                    System.out.println(-1); // 하나 빼고, 뺀거 출력 // 숫자 없을때
+
+                }
+
+                if(TT[0].equals("pop_front") && deque.size() > 0 ){
+
+                    System.out.println(deque.pollFirst()); // 하나 빼고, 뺀거 출력 // 숫자 있을때
+
+                }
+
+                if(TT[0].equals("pop_back") && deque.size() > 0 ){
+
+                    System.out.println(deque.pollLast()); // 하나 빼고, 뺀거 출력 // 숫자 있을때
+
+                }
+
+                if(TT[0].equals("size")){
+
+                    System.out.println(deque.size()); // 사이즈 출력
+
+                }
+
+                if(TT[0].equals("empty")){
+
+                    if(deque.size() <=0 ){
+
+                        System.out.println(1); // 비엇을때 1 출력
+
+                    }else{
+
+                        System.out.println(0); // 안볏을때 0 출력
+
+                    }
+                }
+            }
+        }
+    }
+}
