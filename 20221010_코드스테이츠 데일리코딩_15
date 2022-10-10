@@ -1,0 +1,20 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public Integer modulo(int num1, int num2) {
+    // TODO:
+    if(num2 != 0){
+      while(num1 >=num2 ){
+
+        num1 = num1 - num2;
+
+      }
+      return num1;
+
+    }else{
+      return null ;
+    }
+	} 
+}
+// 나눗셈 연산자 안썻는데 썻다고 나옴 쓰발~
