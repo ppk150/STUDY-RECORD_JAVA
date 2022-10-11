@@ -1,0 +1,25 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public boolean superIncreasing(int[] arr) {
+    // TODO:
+
+    // 앞 수 + 뒷수 < 뒷수일때도 더함
+
+    int sum = arr[0] ;
+
+
+    for(int i =1  ; i <arr.length; i++ ){
+
+      if(sum < arr[i] ){
+        sum = sum + arr[i];
+
+      }else{
+        return false;
+      }
+
+    }
+    return true;
+	} 
+}
