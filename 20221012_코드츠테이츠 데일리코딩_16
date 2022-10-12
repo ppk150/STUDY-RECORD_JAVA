@@ -1,0 +1,32 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public boolean isIsogram(String str) {
+    // TODO:
+    // charAt을 이용해서 그 글자가 들어잇나 보면됨
+
+    int count = 0 ; 
+
+    String str1 = str.toLowerCase();
+
+
+    for(int i = 0 ; i < str.length(); i++){
+
+      for(int j = 0 ; j < str.length(); j++){
+
+        if(str1.charAt(i) == str1.charAt(j)   ){
+          count++;
+
+      }
+
+      }
+
+      if(count >str.length() ){
+        return false;
+      }
+
+    }
+    return true;
+	} 
+}
