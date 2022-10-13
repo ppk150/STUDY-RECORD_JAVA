@@ -1,0 +1,34 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public int numberSearch(String str) {
+    // TODO:
+
+
+    double div = 0 ;
+
+        String[] comp = new String[str.length()];
+        double result = 0 ;
+
+        for(int i = 0 ; i <str.length() ; i++ ){
+
+            if(str.charAt(i) != ' ' && !Character.isDigit(str.charAt(i))){
+                div++;
+            }
+
+
+
+            if(Character.isDigit(str.charAt(i))){
+
+                result += Character.getNumericValue(str.charAt(i));
+
+            }
+
+
+
+        }
+    return (int)Math.round(result / div);
+
+	} 
+}
