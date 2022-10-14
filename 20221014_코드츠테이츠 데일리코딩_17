@@ -1,0 +1,30 @@
+public class codestatedaily_17_2 {
+    public static void main(String[] args) {
+
+        int num = 144;
+        double xn =  num / 2 ;
+        String result = "";
+
+        double  num_2 = num;
+
+        double x =num / 2 ;
+
+        int count = 0 ;
+
+        while(x <= num_2){
+
+            x = 0.5*(num / x + x);
+
+            if(x * x <= num){
+                break;
+            }
+            count++;
+
+        }
+
+        result = String.format("%.2f",x);
+
+        System.out.println(result);
+        System.out.println(count);
+    }
+}
