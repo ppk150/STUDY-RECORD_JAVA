@@ -1,1 +1,70 @@
 
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public String decryptCaesarCipher(String str, int secret) {
+    // TODO:
+
+    // 문자열 받아서 - charAt으로 가져와서 시크릿반큼 더해서 다시 char로 넣고 -> 다시 string으로
+
+     String result =  "";
+
+        int compint = 0 ;
+
+      //  if(secret > 26){
+
+       //     secret = 26 -secret;
+      //  }
+
+
+        for(int i = 0 ; i < str.length(); i++){
+
+
+            if(str.charAt(i) !=' ') {
+
+                if (str.charAt(i) + secret > 122) {
+
+                    compint = (str.charAt(i) - secret + 26); // 아스키 코드 넘어가면 25빼준다
+
+                    if(compint > 122){
+
+                        compint = compint - 122 +96;
+                    }
+
+                    char comp = (char) compint;
+
+                    result += String.valueOf(comp);
+
+
+                }
+//                else if(str.charAt(i) + secret == 122 ) {
+//
+//                }
+                 else{
+
+                    compint = (str.charAt(i) - secret); // 아스키 코드 넘어가면 25빼준다
+                    if(compint < 97){
+
+                        compint += 26;
+
+                    }
+
+                    char comp = (char)compint;
+
+                    result += String.valueOf(comp);
+
+                }
+
+            }else{
+                result += ' ';
+            }
+
+        }
+
+    return result;
+
+
+
+	} 
+}
