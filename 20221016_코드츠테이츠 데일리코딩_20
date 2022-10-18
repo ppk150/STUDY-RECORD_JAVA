@@ -1,1 +1,31 @@
 
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public String compressString(String str) {
+    // TODO:
+
+    String result = "";
+    String comp = "";
+    
+
+    for(int i = 0 ; i < str.length()-1 ; i++){
+      int count = 0 ; 
+
+      if(str.charAt(i) == str.charAt(i+1) ){
+
+        count++;
+        if(count >= 2){
+          result += Integer.toString(count+1) + Character.toString(str.charAt(i));
+        }
+
+      }else{
+        result += Character.toString(str.charAt(i)); // 한글자 짤짤이로 있는거 그냥 넣음
+      }
+
+    }
+    return result;
+
+	} 
+}
