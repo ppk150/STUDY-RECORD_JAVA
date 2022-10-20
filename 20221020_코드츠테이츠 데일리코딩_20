@@ -1,0 +1,54 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public String compressString(String str) {
+    // TODO:
+
+     String result = "";
+        String comp = str+"1";
+        int count = 0 ;
+        int[] countchar = new int[str.length()];
+        int countspot = 0 ;
+
+
+        for(int i = 0 ; i < comp.length()-1 ; i++){
+
+
+            if(comp.charAt(i) == comp.charAt(i+1) ){ // 두 글자가 서로 같은때, 2 이상일때 넣는거 필요
+                count++;
+            }
+
+            if(comp.charAt(i) != comp.charAt(i+1)){ // 중복되는 글자 수를 셈 , 배열로 넣음
+                countchar[countspot] = count+1;
+                count = 0 ;
+                countspot++;
+            }
+
+
+
+        }
+
+        countspot = 0 ;
+
+        for(int i = 0 ; i <comp.length()-1 ; i ++){
+
+            if(comp.charAt(i) != comp.charAt(i+1)){
+
+                if(countchar[countspot] >=3){
+                    result = result+ countchar[countspot]+comp.charAt(i);
+                    countspot++;
+                }else{
+                    for(int j = 0 ; j < countchar[countspot] ;j++){
+                        result = result+ comp.charAt(i);
+                    }
+                    countspot++;
+                }
+
+
+            }
+
+        }
+        return result;
+	} 
+}
