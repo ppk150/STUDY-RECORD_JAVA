@@ -1,0 +1,29 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public int[] bubbleSort(int[] arr) {
+    // TODO:
+
+		 for(int i = 1 ; i < arr.length ; i ++ ){
+
+            int toggle = 0;
+            for(int j = 0 ; j < arr.length-1 ; j++){
+                if(arr[j] > arr[j+1]){
+
+                    int comp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = comp;
+                    toggle = 1 ;
+
+                }
+
+            }
+            if(toggle == 0){
+                break;
+
+            }
+        }
+        return arr;
+	} 
+}
