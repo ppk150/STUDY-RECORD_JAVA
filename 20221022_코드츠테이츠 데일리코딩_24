@@ -1,0 +1,41 @@
+package com.codestates.coplit; 
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Solution { 
+	public boolean isSubsetOf(int[] base, int[] sample) {
+    // TODO:
+
+
+    int baseL = base.length;
+        int sampleL = sample.length;
+
+        int toggle = 0 ;
+        int count = 0 ;
+
+        for(int i = 0 ; i < baseL ; i ++){
+
+            for(int j = 0 ; j < sampleL ; j++){
+                if(base[i] == sample[j]){
+                    toggle = 1 ;
+                    break;
+                }
+
+
+            }
+
+            if(toggle == 1 ){
+                count++;
+                toggle =0;
+            }
+
+        }
+        if(count == sampleL ){
+            return true;
+        }else{
+            return false;
+        }
+
+
+	} 
+}
