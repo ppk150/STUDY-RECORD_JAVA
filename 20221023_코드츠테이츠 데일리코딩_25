@@ -1,0 +1,21 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public long power(int base, int exponent) {
+    // TODO:
+
+    long result = 1;
+
+        for(int i = 0 ; i < exponent ; i ++){
+
+            result = (result * base) % 94906249 ;
+
+        }
+
+    
+    return result;
+
+
+	} 
+}
