@@ -1,0 +1,85 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public boolean balancedBrackets(String str) {
+    // TODO:
+
+
+		int STRL = str.length();
+
+        String[] strcomp = str.split("");
+
+
+        int toggle = 0 ;
+        int count = 0;
+
+        for(int i = 0 ; i <STRL ; i++ ){
+
+            if(strcomp[i].equals("{")||strcomp[i].equals("}")||strcomp[i].equals("(")||strcomp[i].equals(")")||strcomp[i].equals("[")||strcomp[i].equals("]")){
+                count++; // 괄호만 들어간 문자열 길이 구하기
+            }
+
+        }
+
+        String[] resultstr = new String[count];
+
+
+        for(int i = 0 ; i <STRL ; i++ ){ // 괄호만 있는 문자열 생성
+
+            if(strcomp[i].equals("{")||strcomp[i].equals("}")||strcomp[i].equals("(")||strcomp[i].equals(")")||strcomp[i].equals("[")||strcomp[i].equals("]")){
+                resultstr[i] = strcomp[i];
+            }
+
+        }
+
+        int resultstrL = resultstr.length;
+
+        if(resultstrL == 1 ){
+
+            return false;
+
+        }else if(resultstrL ==  0 ){
+          return true;
+        }
+
+
+        for(int i = 0 ; i < resultstrL-1 ; i ++){
+
+            if((strcomp[i].equals("{")||strcomp[i].equals("(")||strcomp[i].equals("["))){
+
+                toggle = 1 ; //
+
+            }
+
+            if(toggle != 1 && (strcomp[i].equals("}")||strcomp[i].equals(")")||strcomp[i].equals("]"))){
+
+                return false;
+           
+            }
+
+            if(strcomp[i].equals("(")&&strcomp[i+1].equals("}")){
+                return false;
+         
+            }else if(strcomp[i].equals("(")&&strcomp[i+1].equals("]")){
+                return false;
+          
+            }else if(strcomp[i].equals("[")&&strcomp[i+1].equals(")")){
+                return false;
+           
+            }else if(strcomp[i].equals("[")&&strcomp[i+1].equals("}")){
+                return false;
+          
+            }else if(strcomp[i].equals("{")&&strcomp[i+1].equals(")")){
+                return false;
+             
+            }else if(strcomp[i].equals("{")&&strcomp[i+1].equals("]")){
+                return false;
+                
+            }
+
+        }
+				return true;
+
+	} 
+}
