@@ -1,0 +1,19 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public int fibonacci(int num) {
+    // TODO:
+
+    return fibonacci_logic(num);
+
+    
+	} 
+
+    static int fibonacci_logic(int N) {
+        if (N == 0)	return 0;
+        if (N == 1)	return 1;
+        return fibonacci_logic(N - 1) + fibonacci_logic(N - 2);
+    }
+}
+
