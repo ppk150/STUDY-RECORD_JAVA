@@ -1,0 +1,21 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public int[] heapSort(int[] arr) {
+		// 우선순휘 큐를 선언함 -> 이거 쓰면 알아서 정렬해서 드감
+    PriorityQueue<Integer> heap = new PriorityQueue<Integer>();
+
+		// 그냥 때려넣음
+		for(int i = 0; i < arr.length; i++) {
+			heap.add(arr[i]);
+		}
+
+		// 때려넣은거 배열로 다시 넣어주면 오를차순 끝
+		for(int i = 0; i < arr.length; i++) {
+			arr[i] = heap.poll();
+		}
+
+		return arr;
+	} 
+}
