@@ -1,0 +1,33 @@
+package com.codestates.coplit; 
+import java.util.*;
+
+public class Solution { 
+	public int primePassword(int curPwd, int newPwd) {
+		// TODO:
+
+		int result = 0 ;
+
+        if(curPwd == newPwd){
+            result = 0 ;
+        }else{
+
+            if(curPwd%1000 -curPwd%100 != newPwd%1000 - newPwd%100){
+                result = result+1;
+            }
+            if(curPwd%100 -curPwd%10 != newPwd%100 -newPwd%10){
+                result = result+1;
+            }
+
+            if(curPwd%10 != newPwd%10){
+                result = result+1;
+            }
+
+            if(curPwd/1000 != newPwd/1000){
+                result = result+1;
+            }
+
+
+        }
+				return result;
+	}
+}
