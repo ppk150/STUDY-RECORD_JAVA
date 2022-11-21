@@ -1,0 +1,32 @@
+package com.codestates.coplit; 
+
+public class Solution { 
+	public int binarySearch(int[] arr, int target) {
+		// TODO:
+
+		int start = 0;
+        int edge = arr.length;
+        int mid = 0;
+
+        while(start + 1 < edge ){
+            mid = (start + edge) / 2 ;
+
+            if(arr[mid] <= target){
+                start = mid;
+
+            }else {
+                edge = mid;
+            }
+
+            if(arr[mid] == target){
+                return mid;
+                
+            }
+
+        }
+        return -1;
+
+
+
+	}
+}
