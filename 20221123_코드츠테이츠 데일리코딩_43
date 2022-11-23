@@ -1,0 +1,63 @@
+public class codestatedaily_43 {
+    public static void main(String[] args) {
+
+        Character[][] matrix = new Character[][]{
+                {'A', 'B', 'C'},
+                {'D', 'E', 'F'},
+                {'G', 'H', 'I'},
+        };
+
+
+
+
+        int x = matrix[0].length;
+        int y = matrix.length;
+
+        String Dal = "";
+
+        int count = 0 ;
+
+
+        int countDal = 0;
+        double count_dal = 0;
+        double countfordal = 0;
+
+
+        while(count <= x * y){
+            for(int i = countDal ; i < x; i++){
+
+                Dal = Dal + (matrix[countDal][i]);
+                count++;
+
+            }
+
+            countDal++;
+
+            for(int i = countDal ; i < y; i++){
+
+                Dal = Dal + (matrix[i][x-countDal]);
+                count++;
+            }
+
+            for(int i = countDal ; i < x; i++){
+
+                Dal = Dal + (matrix[x-countDal][x-i-countDal]);
+                count++;
+
+            }
+            countDal++;
+
+            for(int i = countDal ; i < y; i++){
+
+                Dal = Dal + "?";
+                count++;
+
+            }
+
+        }
+
+        System.out.println(Dal);
+
+
+    }
+}
