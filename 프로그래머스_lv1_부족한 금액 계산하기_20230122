@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+long long solution(int price, int money, int count) {
+    
+    long sumprice = 0;
+    
+    long result = 0 ; 
+    
+    for(int i = 1 ; i <= count ; i++){
+        
+        sumprice = sumprice + i * price;
+        
+    }
+    
+    if(sumprice > money){
+        
+        result = sumprice - money ; 
+        
+    }else{
+        result = 0; 
+    }
+    
+    
+    long long answer = -1;
+    return result;
+}
