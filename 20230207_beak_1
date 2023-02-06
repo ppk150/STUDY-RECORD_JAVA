@@ -1,0 +1,42 @@
+import java.io.*;
+
+public class java_20230205_1 {
+    public static void main(String[] args) throws IOException {
+        int[][] all = new int [9][9];
+
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int comp = 0; // 큰수 비교용
+
+        int spot_x = 0 ;
+        int spot_y = 0 ;
+
+
+        for(int i = 0 ; i < 9 ; i ++){ // 9*9 숫차칸 2차원 배열에 다 넣기
+
+            String nums = bf.readLine(); // 한줄씩 받아서
+            String[] numsplit = nums.split(" "); // 공백단위로 잘라서
+
+            for(int j = 0 ; j <9 ; j++){
+
+                all[i][j] = Integer.valueOf(numsplit[j]); // 자른거를 int형으로 배열로 차곡차곡
+
+                if(all[i][j] > comp){
+
+                    comp = all[i][j];
+                    spot_x = i;
+                    spot_y = j ;
+
+                }
+
+            }
+        }
+
+
+        System.out.println(comp);
+        System.out.println((spot_x+1) + " "+(spot_y + 1));
+
+
+    }
+}
