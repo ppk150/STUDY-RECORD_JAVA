@@ -1,0 +1,52 @@
+import java.io.*;
+
+public class java_20230205_2 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String nums = bf.readLine(); // 한줄씩 받아서
+        String[] numsplit = nums.split(" "); // 공백단위로 잘라서
+
+        int X = Integer.valueOf(numsplit[0]);
+        int Y = Integer.valueOf(numsplit[1]);
+
+        int[][] comp_1 = new int[X][Y];
+
+        int[][] comp_2 = new int[X][Y];
+
+        for(int i = 0 ; i < X ; i ++){
+
+            String inputcomp1 = bf.readLine(); // 한줄씩 받아서
+            String[] comp1 = inputcomp1.split(" "); // 공백단위로 잘라서
+            for(int j = 0 ; j < Y ; j ++){
+                comp_1[i][j] = Integer.valueOf(comp1[j]);
+            }
+        }
+
+        for(int i = 0 ; i < X ; i ++){
+
+            String inputcomp1 = bf.readLine(); // 한줄씩 받아서
+            String[] comp2 = inputcomp1.split(" "); // 공백단위로 잘라서
+            for(int j = 0 ; j < Y ; j ++){
+                comp_2[i][j] = Integer.valueOf(comp2[j]);
+            }
+        }
+
+        for(int i = 0 ; i < X ; i ++){
+
+            for(int j = 0 ; j < Y ; j ++){
+                comp_1[i][j] = comp_1[i][j]+comp_2[i][j];
+            }
+        }
+
+        for(int i = 0 ; i < X ; i ++){
+
+            for(int j = 0 ; j < Y ; j ++){
+                System.out.print(comp_1[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
