@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class java_20230214_1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int T = sc.nextInt();
+
+        int[] num = new int[T];
+
+        int comp = 0 ;
+
+        for(int i = 0 ; i < T ; i ++){
+
+            num[i] = sc.nextInt();
+
+
+
+            if(num[i] > comp){
+                System.out.print(num[i]+" ");
+
+                comp = num[i];
+            }else{
+                comp = num[i];
+            }
+        }
+    }
+}
