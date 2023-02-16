@@ -1,0 +1,20 @@
+public class java_20230214_4 {
+
+    public void DFS(int n ){
+
+        if(n ==0){
+            return;
+        }else{
+            DFS(n/2);
+            System.out.println(n%2 + " ");
+
+        }
+
+    }
+
+    public static void main(String[] args) {
+        java_20230214_4 T = new java_20230214_4();
+        T.DFS(11);
+
+    }
+}
