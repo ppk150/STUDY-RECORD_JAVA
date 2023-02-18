@@ -1,0 +1,33 @@
+import java.util.*;
+import java.io.*;
+
+
+public class Main
+{
+    public static void main(String args[]) throws IOException
+    {
+        
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+
+        String MNK = bf.readLine(); // 첫줄 가져옴 
+
+        String[] split_MNK = MNK.split(" ");
+
+        String M = bf.readLine(); // 첫줄 가져옴 
+
+        String N = bf.readLine(); // 첫줄 가져옴 
+
+        if(N.contains(M)){
+
+            System.out.println("secret");
+
+        }else{
+            System.out.println("normal");
+        }
+
+
+
+
+
+    }
+}
