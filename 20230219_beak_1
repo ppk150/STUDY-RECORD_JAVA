@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class java_20230219_1 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+
+        String T = bf.readLine();
+        int num = Integer.valueOf(T);
+
+
+        System.out.println(pactori(num));
+
+    }
+
+    public static int pactori(int n){
+
+        if(n == 0){
+
+            return 1;
+
+        }
+
+        return(n* pactori(n-1));
+
+
+    }
+
+}
