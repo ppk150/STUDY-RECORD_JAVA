@@ -1,0 +1,45 @@
+
+
+class Node{ // 노드 설정해주는 클래스
+    int data;
+    Node lt , rt ; // 노드의 자식노드 lt:왼쪽 자식노드 , rt : 오른쪽 자식노드
+    public Node (int val){
+        data = val;
+        lt=rt=null; // 왼쪽, 오른쪽 자식노드를 null 초기값으로 넣음
+                    // 이렇게 만들어 놓으면, 말단 노드 부분에서 null값이 들어간 자식노드가 생기는데, 이걸 이용해서 dfs 멈춤
+
+    }
+}
+public class BIDFS {
+
+    Node root;
+    public  void DFS(Node root){
+
+        if(root == null){ // 노드 값이 null 이면
+            return; // 고냥 종료
+        }else{            // null 값이 아니면 DFS 시작
+
+            System.out.print(root.data + " ");  // 탐색한 노드 출력  // 재귀함수 위에 쓰면 전위 순회
+            DFS(root.lt); // 왼쪽 노드 탐색
+//            System.out.print(root.data + " ");  // 탐색한 노드 출력  // 왼쪽 노드 방문 후 출력 하면 중위 순회
+            DFS(root.rt); // 오른쪽 노드 탐색
+//            System.out.print(root.data + " ");  // 탐색한 노드 출력  // 왼쪽 노드 , 오른쪽 노드 방문 후 출력 하면 후위 순회
+
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+        BIDFS tree =new BIDFS();        //1(루트)~7 를 가지는 이진 트리 생성 (일일히 숫자 넣은거임)
+        tree.root = new Node(1);
+        tree.root.lt = new Node(2);
+        tree.root.rt = new Node(3);
+        tree.root.lt.lt = new Node(4);
+        tree.root.lt.rt = new Node(5);
+        tree.root.rt.lt = new Node(6);
+        tree.root.rt.rt = new Node(7);
+        tree.DFS(tree.root);
+
+    }
+}
