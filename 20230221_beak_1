@@ -1,0 +1,41 @@
+public class DFS2 {
+
+    static int n;
+    static int[] ch; // 숫자가 사용 되는지 안되는지 표시하는 배열 -> 인덱스 = 숫자 / 내부 값 1 사용 , 0 사용 안함
+
+    public void DFS(int L){
+        if(L == n +1){ // 경로 맨 끝으로 가면 -> 해당 경로는 다 탐색 한것이니 출력만 하면 됨
+
+            String tmp = "";
+            for(int i = 0 ; i <= n; i++){
+
+                if(ch[i] == 1 ){
+
+                    tmp += (i + " "); // 해당 숫자를 사용할 때 -> 그 숫자를 출력하게 (경로상의 숫자 출력)
+
+                }
+            }
+
+                if(tmp.length() > 0 ){
+                    System.out.println(tmp); // 경로들 통과한 수만 출력 -> 공집합은 안나옴
+                }
+
+        }else{
+
+            ch[L] = 1; // 해당 숫자 사용
+            // 여기서 L은 노드의 숫자가 된다 , 즉 L 인덱스(숫자)에 1 이 드감 = L 사용됨
+            DFS(L + 1 ); // 숫자를 사용 할때의 경로 (트리 그림에서 왼쪽)
+            ch[L] = 0;// 해당 숫자 사용 안함
+            DFS(L + 1); // 숫자를 사용 하지 않을 때의 경로 (트리 그림에서 오른쪽)
+
+        }
+    }
+
+    public static void main(String[] args) {
+
+        DFS2 T = new DFS2();
+        n = 3 ;
+        ch = new int[n + 1];// 숫자 0 은 포함 안해서 1 부터 셈, 0 1 2 3 이캐캐 됨 (배열크기 4)
+        T.DFS(1);
+    }
+}
