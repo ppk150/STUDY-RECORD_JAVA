@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class java_20230222_1 {
@@ -6,25 +7,32 @@ public class java_20230222_1 {
 
     static int B ;
 
-   
+    static int count;
 
-    public static void DFS(int A) { // 여그에 연산 뿌슝빠슝
+    public static void DFS(int A, int count) { // 여그에 연산 뿌슝빠슝
+
+
 
         if (A > B) { // 브레끼 조건, 이 조건만 잘 하면 그냥 풀듯?
 
             System.out.println("이게 아님");
-            count = 0;
+//            count = 0;
+             return;
 
         } else if (A == B) { // 같을 때
 
             System.out.println("이곳이 스팟이다.");
-            System.out.println(A);
+            System.out.println(count);
+            return;
 
         } else { // 연산
 
-            DFS(A * 2); // 곱하기 2 하는 연산
 
-            DFS(A * 10 + 1); // 끝자리에 1 붙이는 연산 -> 사실상 10곱하고 1 붙인거임~
+            DFS(A * 2,count +1); // 곱하기 2 하는 연산
+
+            DFS(A * 10 + 1, count +1); // 끝자리에 1 붙이는 연산 -> 사실상 10곱하고 1 붙인거임~
+
+
 
         }
 
@@ -40,7 +48,7 @@ public class java_20230222_1 {
 
          B = sc.nextInt();
 
-        java_20230222_1.DFS(A);
-        
+        java_20230222_1.DFS(A , 1);
+
     }
 }
