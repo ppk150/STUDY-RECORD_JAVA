@@ -1,0 +1,73 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class java_20230222_3 {
+
+    int answer = 0;
+    int[] dis = {2, 10}; //연산 할 배열
+    int[] ch ;
+    Queue<Integer> Q = new LinkedList<>();
+
+    public int BFS (int s, int e) {
+
+        ch = new int[1000000001];
+        ch[s] = 1; // 방문했을때 체크
+        Q.offer(s);
+        int L = 0;
+
+        while (!Q.isEmpty()) {
+
+            int len = Q.size();
+
+            for (int i = 0; i < len; i++) {
+
+                int x = Q.poll();
+
+                if (x == e) {
+                    return L +1;
+                }
+
+                for (int j = 0; j < 2; j++) { // 연산 대상
+                    int nx = 0; // 연산
+
+                    if(dis[j] == 2){
+
+                        nx = x*2;
+
+                    }else{
+
+                        nx = x*10+1;
+
+                    }
+
+//                    if (nx == e) { // 이렇게 여기에 넣으면, 큐에 넣을때 숫자를 검출 가능, 다만 nx 를 검출하는 것
+//                        return L+1; // 현 시점의 L 은 부모노드의 레벨이므로 +1 해줘야 현제 보는 레벨이 나옴
+//                    }
+
+                    if (nx >= 1 && nx < 1000000001 && ch[nx] == 0) { // 방문 안한 노드 일 때
+                        ch[nx] = 1; // 방문 했다고 바꾸고
+                        Q.offer(nx); // 해당 숫자를 큐에 넣는다
+                    }
+                }
+            }
+            L++;
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+
+        java_20230222_3 T = new java_20230222_3();
+
+        Scanner sc = new Scanner(System.in);
+        int s = sc.nextInt();
+        int e = sc.nextInt();
+
+        System.out.println(T.BFS(s,e));
+
+
+
+    }
+}
