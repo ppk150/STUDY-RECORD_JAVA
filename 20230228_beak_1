@@ -1,0 +1,63 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Node{ // 노드 설정해주는 클래스
+    int data;
+    Node lt , rt ; // 노드의 자식노드 lt:왼쪽 자식노드 , rt : 오른쪽 자식노드
+    public Node (int val){
+        data = val;
+        lt=rt=null; // 왼쪽, 오른쪽 자식노드를 null 초기값으로 넣음
+        // 이렇게 만들어 놓으면, 말단 노드 부분에서 null값이 들어간 자식노드가 생기는데, 이걸 이용해서 bfs 멈춤
+    }
+}
+public class BIBFS {
+
+    Node root;
+    public  void BFS(Node root){
+        Queue<Node> Q = new LinkedList<>();
+        Q.offer(root); // 큐에 루트값 먼저 하나 넣고 ㄱㄱ 함
+        int L = 0 ; // 처음 시작하는 레벨
+        while(!Q.isEmpty()){
+
+            int len = Q.size();
+            System.out.print(L + " : ");
+
+            for(int i = 0 ; i < len ; i ++){
+
+                Node cur = Q.poll(); // 큐 안에 들은거 꺼내기 하나씩 꺼냄
+
+                System.out.print(cur.data + " ");
+
+                if(cur.lt != null){ // 왼쪽 말단 노드가 null이 아니면 큐에 값을 넣음
+
+                    Q.offer(cur.lt);
+
+                }
+
+                if(cur.rt != null){ // 오른쪽 말단 노드가 null이 아니면 큐에 값을 넣음
+
+                    Q.offer(cur.rt);
+
+                }
+            }
+
+            L++; // 탐색 레벨 높이기
+            System.out.println(); // 줄바꿈
+
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        BIBFS tree =new BIBFS();        //1(루트)~7 를 가지는 이진 트리 생성 (일일히 숫자 넣은거임)
+        tree.root = new Node(1);
+        tree.root.lt = new Node(2);
+        tree.root.rt = new Node(3);
+        tree.root.lt.lt = new Node(4);
+        tree.root.lt.rt = new Node(5);
+        tree.root.rt.lt = new Node(6);
+        tree.root.rt.rt = new Node(7);
+        tree.BFS(tree.root);
+    }
+}
