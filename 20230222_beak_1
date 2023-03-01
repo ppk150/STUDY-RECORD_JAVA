@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class java_20230222_1 {
@@ -51,4 +50,4 @@ public class java_20230222_1 {
         java_20230222_1.DFS(A , 1);
 
     }
-} 
+}
