@@ -1,0 +1,64 @@
+class Solution {
+    public int solution(int number, int limit, int power) {
+        
+        // 숫자 들어온거 약수 구하고 
+        // 리미트보다 많은약수면 리미트대로 
+        // 약수 + 리미트  = 철의 무게 
+        
+        int[] result = new int[number]; // 약수 담을 배열
+
+        int comp = number;
+
+        int start = number;
+
+        int count = 0;
+        
+        int answer = 0;
+
+        for(int j = 0 ; j < start; j ++ ){
+
+            for(int i = 1 ; i *i<= number ;i++){
+                
+                if(i * i ==number){
+                    count ++;
+                    
+                }else if(number % i == 0){
+                    count+=2;
+                }
+                
+                
+// for 문으로 하나하나 나눠보면서 구할 때 
+//                 if(number % comp == 0 ){ // 약수 찾았을 때
+
+//                     count++;
+//                     comp--;
+
+//                 }else{
+//                      comp--;
+//                 }
+
+            }
+            result[j] = count;
+            count = 0 ;
+            number--;
+            comp = start-j-1;
+        }
+        // for(int i = 0 ; i < result.length ; i++ ){
+        //     System.out.println(result[i]);
+        // }
+        
+        for(int i = 0 ; i < result.length ; i ++){
+            if(result[i] <= limit){
+                
+                answer = answer + result[i];
+                
+            }else{
+                answer = answer + power;
+            }
+        }
+        
+        
+        
+        return answer;
+    }
+}
