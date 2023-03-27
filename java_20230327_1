@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int k, int m, int[] score) {
+        
+        // 들어온거 오름차순 정렬 해서 
+        // 배열 - m 만큼의 인덱스 *  m = 가격 
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int[] scoresort = score;
+        
+        Arrays.sort(scoresort); // 오름차순 정렬 완료 
+        
+        int count = 0 ; 
+        
+        for(int i = 1 ; i <= (scoresort.length)/m ; i++){
+            
+                count = count + scoresort[(scoresort.length) - m * i ] * m;
+        
+        }
+        
+        int answer = count;
+        return answer;
+    }
+}
