@@ -1,0 +1,28 @@
+import java.util.*;
+class Solution {
+    public int[] solution(int k, int[] score) {
+        
+        int[] answer = new int[score.length];
+
+        PriorityQueue<Integer> PQ = new PriorityQueue<>();
+        
+        for(int i = 0 ; i < score.length; i++) {
+            
+            if(PQ.size() < k){
+                
+                PQ.add(score[i]);
+                
+            }else{
+                if(score[i] > PQ.peek()){ // 드루온게 가진거보다 크면  
+                    PQ.add(score[i]);
+                    PQ.poll();
+                }
+            }
+            
+            answer[i] = PQ.peek(); // 가장 작은것을 넣게 된다 
+            
+        }
+    
+        return answer;
+    }
+}
