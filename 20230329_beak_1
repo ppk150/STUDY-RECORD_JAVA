@@ -1,0 +1,104 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class java_20230329_1 {
+
+    //    static ArrayList<Integer>[] graph; // 인접 리스트 그래프 만드는 리스트
+
+    static boolean[][] graph;
+
+//    static int count;
+
+    static boolean[] visited; // 댕겨온곳 저장
+
+    static boolean[] visited_bfs; // 댕겨온곳 저장
+
+    static int T;
+
+    public static void putEdge(boolean[][] graph,int x, int y) { // 그래프에 표시
+
+        graph[x][y] = true;
+        graph[y][x] = true;
+
+
+    }
+
+    public static void main(String[] args) {
+
+
+
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt(); // 정점의 수
+
+        int M = sc.nextInt(); // 간선의 수
+
+        int v = sc.nextInt(); // 콤퓨타 수
+
+        graph = new boolean [N+1][N+1];
+
+        visited = new boolean[N+1];
+
+        visited_bfs = new boolean[N+1];
+
+        for(int i = 0 ; i < M ;i++){ //  행렬 형태로 저장
+
+            int one =sc.nextInt();
+
+            int two = sc.nextInt();
+
+            // 행렬 형태로 그래프 저장됨
+            putEdge(graph ,one, two);
+
+        }
+
+        DFS(graph, v, visited);
+
+        System.out.println();
+
+        BFS(graph, v, visited_bfs);
+
+
+
+    }
+
+    public static void DFS(boolean[][] graph, int v, boolean[] visited_bfs){
+        visited_bfs[v] = true;
+        System.out.print(v + " ");
+        for(int i = 0 ; i < graph.length; i ++ ){
+            if(graph[v][i]==true && !visited_bfs[i]){
+                DFS(graph, i,visited_bfs);
+            }
+
+        }
+
+
+
+    }
+
+    public static void BFS(boolean[][] graph, int v, boolean[] visited){
+        Queue<Integer> queue = new LinkedList<>();
+        visited[v] = true;
+        queue.add(v);
+
+        while(!queue.isEmpty()){
+            int node = queue.poll();
+            System.out.print(node + " ");
+            for(int i = 0 ; i < graph.length ; i ++){
+
+                if(graph[node][i]==true && !visited[i]){
+                    visited[i] =true;
+                    queue.add(i);
+
+                }
+
+            }
+
+        }
+
+
+
+
+    }
+}
