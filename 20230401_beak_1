@@ -1,0 +1,36 @@
+import java.util.Scanner;
+  
+public class Main {
+  public static void main(String[] args){
+            Scanner sc = new Scanner(System.in);
+
+        String str = sc.next();
+
+        String strplus = str + " ";
+
+        String[] str_split = strplus.split("");
+
+        String comp = "";
+
+        int count = 1 ;
+
+
+        for(int i = 0 ; i < strplus.length()-1 ; i++){
+
+
+            if(str_split[i].equals(str_split[i+1])){
+                count++;
+            }else{
+                comp = comp + str_split[i];
+                if(count > 1){
+                    comp = comp + count;
+                    count = 1;
+                }
+            }
+
+        }
+        System.out.println(comp);
+
+    return ;
+  }
+}
