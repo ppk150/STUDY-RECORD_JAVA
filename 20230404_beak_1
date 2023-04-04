@@ -1,0 +1,99 @@
+package samsung_1;
+
+import java.util.*;
+public class DFS1 {
+	
+			
+	// 가로세로 
+	
+	static int N;
+			// 인접 그래프 넣는 2차원 배열 
+	static int[][] map;
+	
+			// 방문한지 안한지를 기록하는 visited배열 
+	static boolean[][] visited;
+			
+			// X축 이동 예시 
+	static int[] X = {0,0,1,-1};
+			
+			// Y축 이동 예시
+	static int[] Y = {1,-1,0,0};
+			
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc = new Scanner(System.in);
+		
+		N = sc.nextInt();
+		map = new int[N][N];
+		
+		visited =new boolean[N][N];
+		
+		int max = 0 ;
+		int safe = 1;
+		
+		// 지도 입력됨 
+		
+		for(int i = 0 ; i < N ; i ++) {
+		
+			for(int j = 0 ; j < N ; j++) {
+				map[i][j] = sc.nextInt();
+				max = Math.max(max, map[i][j]);
+			}
+			
+		}
+		
+		for(int h =0; h < max ; h ++) {
+			
+			int count = 0 ; 
+			visited = new boolean[N][N]; // 방문 배열 초기화
+			
+			for(int i = 0 ; i < N ; i ++) {
+				for(int j = 0 ; j < N ; j ++) {
+					if(!visited[i][j] && map[i][j] > h) {
+						dfs(i,j,h);
+						
+						count ++;
+					}
+					
+				}
+				
+			}
+			safe = Math.max(safe, count);
+			
+		}
+		System.out.println(safe);
+		
+
+	}
+	
+	public static void dfs(int x, int y , int h ) {
+		
+		visited[x][y] = true;
+		
+		for(int i =0 ; i < 4 ; i ++) { // 사방탐색
+			
+			int nx = x + X[i];
+			
+			int ny = y + Y[i];
+			
+			if(nx < 0 || ny < 0 || nx >= N || ny >= N) {
+				
+				continue;
+				
+			}
+			
+			if(visited[nx][ny] || map[nx][ny] <=h) {
+				
+				continue;
+				
+			}
+			
+			dfs(nx,ny,h);
+			
+		}
+		
+	}
+
+}
