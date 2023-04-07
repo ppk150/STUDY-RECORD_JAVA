@@ -1,0 +1,23 @@
+import java.util.Scanner;
+  
+public class Main {
+  public static void main(String[] args){
+   Scanner sc = new Scanner(System.in);
+
+        String str = sc.next();
+
+        String[] str_split = str.split("");
+
+        String result = "";
+
+        for(int i = 0 ; i < str_split.length; i ++){
+
+            if(!result.contains(str_split[i])){
+                result += str_split[i];
+            }
+
+        }
+        System.out.println(result);
+    return ;
+  }
+}
